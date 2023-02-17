@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="h-screen overflow-hidden flex" style="background: #edf2f7">
+    <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+        <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+            <div class="mb-4">
+                <h1 class="text-grey-darkest">Todo List</h1>
+                <form action="/todo/create" method="post" name="create-todo" onsubmit="return validateForm()">
+                    <div class="flex mt-4">
+                        <input type="text" name="task"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+                            placeholder="Add Todo Task" />
+                        <button type="submit"
+                            class="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal">
+                            Add
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                {{ range $task := .Todos}}
+                    <div class="flex mb-4 items-center">
+                            <p class="w-full 
+                            {{ if $task.Status }} 
+                                line-through text-green 
+                            {{ else }} 
+                                text-grey-darkest 
+                            {{ end }}">
+                            {{$task.Task}}
+                        </p>
+                        <form action="/todo/update" method="post">
+                              <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="id" value="{{$task.ID}}">
+                            <button
+                                type="submit"
+                                class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white 
+                                {{if $task.Status}}
+                                text-grey border-grey hover:bg-grey
+                                {{else}}
+                                text-green border-green hover:bg-green
+                                {{end}}
+                                ">
+                                {{if $task.Status}}
+                                Not Done
+                                {{else}}
+                                Done
+                                {{end}}
+                            </button>
+                        </form>
+                        <form action="/todo/delete" method="post">
+                              <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="id" value="{{$task.ID}}">
+                            <button
+                                type="submit"
+                                class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">
+                                Remove
+                            </button>
+                        </form>
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var x = document.forms["create-todo"]["task"].value
+            if (x == "") {
+                alert("Task must be filled out")
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>
