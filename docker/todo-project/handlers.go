@@ -53,7 +53,8 @@ func (t *TodoHandlers) CreateTodo(w http.ResponseWriter, r *http.Request) error 
 		return fmt.Errorf("TodoHandlers.CreateTodo.FormValue: form task is empty")
 	}
 
-	err = t.todo.CreateTask(Todo{Task: task, Status: false})
+	todo := NewTodo(task, false)
+	err = t.todo.CreateTask(todo)
 	if err != nil {
 		return fmt.Errorf("TodoHandlers.CreateTodo.CreateTask: %v", err)
 	}
@@ -104,22 +105,21 @@ func (t *TodoHandlers) DeleteTodo(w http.ResponseWriter, r *http.Request) error 
 	if r.Method == http.MethodPost {
 		method := r.PostFormValue("_method")
 		if method != http.MethodDelete {
-			return fmt.Errorf("TodoHandlers.EditTodo.FormValueMethod: method is not put")
+			return fmt.Errorf("TodoHandlers.DeleteTodo.FormValueMethod: method is not put")
 		}
 		if method == http.MethodDelete {
 			id := r.PostFormValue("id")
 			if id == "" {
-				return fmt.Errorf("TodoHandlers.EditTodo.FormValueID: form id is empty")
+				return fmt.Errorf("TodoHandlers.DeleteTodo.FormValueID: form id is empty")
 			}
 			idInt, err := strconv.Atoi(id)
-			fmt.Println(idInt)
 			if err != nil {
-				return fmt.Errorf("TodoHandlers.EditTodo.Atoi ID: %v", err)
+				return fmt.Errorf("TodoHandlers.DeleteTodo.Atoi ID: %v", err)
 			}
 
 			err = t.todo.DeleteTask(idInt)
 			if err != nil {
-				return fmt.Errorf("TodoHandlers.EditTodo.DeleteTask: %v", err)
+				return fmt.Errorf("TodoHandlers.DeleteTodo.DeleteTask: %v", err)
 			}
 		}
 	}

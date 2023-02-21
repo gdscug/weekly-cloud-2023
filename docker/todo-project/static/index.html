@@ -27,44 +27,37 @@
             </div>
             <div>
                 {{ range $task := .Todos}}
-                    <div class="flex mb-4 items-center">
-                            <p class="w-full 
+                <div class="flex mb-4 items-center">
+                    <p class="w-full 
                             {{ if $task.Status }} 
                                 line-through text-green 
                             {{ else }} 
                                 text-grey-darkest 
                             {{ end }}">
-                            {{$task.Task}}
-                        </p>
-                        <form action="/todo/update" method="post">
-                              <input type="hidden" name="_method" value="PUT">
-                            <input type="hidden" name="id" value="{{$task.ID}}">
-                            <button
-                                type="submit"
-                                class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white 
+                        {{$task.Task}}
+                    </p>
+                    <form action="/todo/update" method="post">
+                        <input type="hidden" name="_method" value="PUT" />
+                        <input type="hidden" name="id" value="{{$task.ID}}" />
+                        <button type="submit" class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white 
                                 {{if $task.Status}}
                                 text-grey border-grey hover:bg-grey
                                 {{else}}
                                 text-green border-green hover:bg-green
                                 {{end}}
                                 ">
-                                {{if $task.Status}}
-                                Not Done
-                                {{else}}
-                                Done
-                                {{end}}
-                            </button>
-                        </form>
-                        <form action="/todo/delete" method="post">
-                              <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="id" value="{{$task.ID}}">
-                            <button
-                                type="submit"
-                                class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">
-                                Remove
-                            </button>
-                        </form>
-                    </div>
+                            {{if $task.Status}} Not Done {{else}} Done {{end}}
+                        </button>
+                    </form>
+                    <form action="/todo/delete" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <input type="hidden" name="id" value="{{$task.ID}}" />
+                        <button type="submit"
+                            class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">
+                            Remove
+                        </button>
+                    </form>
+                </div>
                 {{ end }}
             </div>
         </div>
