@@ -1,0 +1,101 @@
+Stallio
+Introduction to Computer Science Using Python
+Code: The Hidden Language of Computer Hardware and Software
+JavaScript: The Good Parts
+The Elements of Computing Systems: Building a Modern Computer from First Principles
+The Pragmatic Programmer
+Structure and Interpretation of Computer Programs
+Modern Operating Systems
+Introduction to Algorithms
+The New Turing Omnibus: Sixty-Six Excursions in Computer Science 
+C Programming Language
+Free Software, Free Society
+The C++ Programming Language
+The Little Schemer
+The Mythical Man-Month
+Computer Organization and Design
+Programming Pearls
+Design Patterns
+Clean Code: A Handbook of Agile Software Craftsmanship
+Refactoring: Improving the Design of Existing Code
+Hackers: Heroes of the Computer Revolution
+Computer Graphics: Principles and Practice
+Effective Java
+Transaction Processing
+Computing: A Concise History
+Thinking in Java
+Compilers: Principles, Techniques, and Tools
+Data Structures and Algorithms
+Selected Papers on Computer Science
+The Art of UNIX Programming
+Land of Lisp: Learn to Program in Lisp, One Game at a Time!
+The Soul of A New Machine
+Programming Ruby
+Operating Systems: Principles and Practice
+Understanding Cryptography
+Win32 Programming
+Architecture of Computer Hardware and System Software
+Introduction to the Theory of Computation
+Computer Systems: A Programmer's Perspective
+Peopleware: Productive Projects and Teams
+The Inmates Are Running the Asylum
+Distributed Systems: Principles and Paradigms
+Coders at Work
+Domain-Driven Design: Tackling Complexity in the Heart of Software
+Operating System Concepts
+Rebel Code: Linux And The Open Source Revolution
+The Annotated Turing: A Guided Tour Through Alan Turing's Historic Paper
+Things That Make Us Smart: Defending Human Attributes In The Age Of The Machine
+Natural Language Processing with Python
+Programming Massively Parallel Processors
+Database System Concepts
+Probability and Computing: Randomized Algorithms and Probabilistic Analysis
+Advanced Programming in the UNIX Environment
+Hackers & Painters: Big Ideas from the Computer Age
+Godel, Escher, Bach
+About Face 3: The Essentials of Interaction Design
+Revolution in The Valley: The Insanely Great Story of How the Mac Was Made
+Computer Architecture: A Quantitative Approach
+The Computational Beauty of Nature: Computer Explorations of Fractals, Chaos, Complex Systems, and Adaptation
+Computability: An Introduction to Recursive Function Theory
+Masterminds of Programming: Conversations with the Creators of Major Programming Languages
+Computer Vision: Algorithms and Applications
+Masters of Doom: How Two Guys Created an Empire and Transformed Pop Culture
+How to Solve It: A New Aspect of Mathematical Method
+Writing Secure Code
+No Bugs!: Delivering Error Free Code in C and C++
+The Cathedral & the Bazaar
+Concepts in Programming Languages
+How to Think Like a Mathematician
+Numerical Recipes: The Art of Scientific Computing
+Advanced Data Structures
+The Art of Computer Programming
+Software Engineering for Internet Applications 
+The Tao of Programming
+Interaction Design: Beyond Human - Computer Interaction
+Computer Networks and Internets
+Show-Stopper!: The Breakneck Race to Create Windows NT and the Next Generation at Microsoft
+A First Course in Database Systems
+Computer Networks
+Concurrent Programming in Java
+Digital Design and Computer Architecture
+Algorithm Design
+Design Concepts in Programming Languages
+Security Engineering: A Guide to Building Dependable Distributed Systems
+Java Puzzlers
+Fundamentals of Database Systems
+The Productive Programmer
+Understanding Machine Learning: From Theory to Algorithms
+Invent Your Own Computer Games with Python
+OpenGL Programming Guide
+Getting Real: The smarter, faster, easier way to build a successful web application
+Histories of Computing
+Discrete Mathematics
+Game Engine Architecture
+The Design of Everyday Things
+Linux in a Nutshell
+Artificial Intelligence: A Modern Approach
+Pattern Recognition and Machine Learning
+The Google Story
+Quantum Computing since Democritus
+Linux System Programming
