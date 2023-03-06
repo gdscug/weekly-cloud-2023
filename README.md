@@ -1,5 +1,13 @@
 # Weekly Class Cloud Engineer 2023
 
+## Weekly Recap
+- [PPT Week 1](https://docs.google.com/presentation/d/1LoZOtOT5JK_stMgX2LLzOmzZTzAZl1Dg/edit?usp=sharing&ouid=111225230215519532168)
+
+
+---
+
+## Installation
+
 Untuk mengikuti Weekly Class Cloud Engineer GDSC UG 2023 diharapkan mengikuti Prerequisite berikut
 
 1. [Instalasi WSL di Windows](#instalasi-wsl-di-windows)
