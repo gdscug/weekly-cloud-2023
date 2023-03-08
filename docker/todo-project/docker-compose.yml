@@ -1,1 +1,69 @@
-# SEE YOU ON WEEKLY CLASS
+version: "3"
+
+# Kita buat volume baru dengan nama todo-volume
+# yang selanjutnya akan di mount ke databse mysql
+volumes:
+  todo-volume:
+
+# Kita buat network untuk setiap service dapat berhubungan
+# secara langsung
+networks:
+  todo-network:
+
+# List semua service di dalam docker compose
+services:
+  # service mysql-db merupakan database untuk mysql kita
+  mysql-db:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    # Masukkan environment variables yang dibutuhkan oleh image
+    # https://hub.docker.com/_/mysql
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - todo-volume:/var/lib/mysql
+    networks:
+      - todo-network
+
+  todo-project:
+    # build merupakan docker image yang ingin kita pakai
+    # untuk todo-project
+    build:
+      # context `.` adalah tempat dimana Dockerfile kita disimpan
+      # yaitu di folder ini atau `.`
+      context: .
+      # dockerfile adalah nama dari Dockerfile yang ingin kita tuju
+      dockerfile: ./Dockerfile
+
+    # Jalankan service todo-project setelah
+    # service mysql-db berjalan terlebih dahulu
+    depends_on:
+      - mysql-db
+    restart: always
+    ports:
+      - 8000:8000
+
+    # Masukkan environment variable untuk service todo-project
+    # masukkan credential yang digunakan oleh service mysql-db didalam sini
+    environment:
+      DB_NAME: todo
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_HOST: mysql-db
+    networks:
+      - todo-network
+
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - mysql-db
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql-db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - todo-network

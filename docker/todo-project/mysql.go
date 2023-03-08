@@ -6,18 +6,14 @@ import (
 	"os"
 	"time"
 
-	"github.com/go-sql-driver/mysql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func NewMySQL() (*sql.DB, error) {
 	// Environment variable
-	conf := mysql.Config{
-		DBName: os.Getenv("DB_NAME"),
-		User:   os.Getenv("DB_USER"),
-		Passwd: os.Getenv("DB_PASSWORD"),
-		Addr:   os.Getenv("DB_HOST"),
-	}
-	db, err := sql.Open("mysql", conf.FormatDSN())
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), "3306", os.Getenv("DB_NAME"))
+
+	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
 	}
@@ -37,7 +33,7 @@ func NewMySQL() (*sql.DB, error) {
 
 			break
 		}
-		fmt.Println(conf.FormatDSN())
+		fmt.Println(dsn)
 		fmt.Println("Connecting to db...")
 		time.Sleep(1 * time.Second)
 	}

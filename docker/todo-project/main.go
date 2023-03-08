@@ -23,8 +23,13 @@ func main() {
 
 	mux := router.RegisterRoutes()
 
+	PORT := os.Getenv("PORT")
+	if PORT == "" {
+		PORT = "8000"
+	}
+
 	s := http.Server{
-		Addr:         ":8000",
+		Addr:         ":" + PORT,
 		Handler:      mux,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
@@ -32,7 +37,7 @@ func main() {
 	}
 
 	go func() {
-		log.Println("Server listening on http://localhost:8000")
+		log.Println("Server listening on http://localhost:" + PORT)
 		err := s.ListenAndServe()
 		if err != nil {
 			log.Printf("Error starting server: %v", err)

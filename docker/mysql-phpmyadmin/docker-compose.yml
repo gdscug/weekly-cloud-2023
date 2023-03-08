@@ -1,0 +1,36 @@
+version: "3"
+
+volumes:
+  mysql-phpmyadmin-volume:
+
+networks:
+  phpmyadmin-mysql:
+
+services:
+  # service mysql-db merupakan database untuk mysql kita
+  mysql-db:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    # Masukkan environment variables yang dibutuhkan oleh image
+    # https://hub.docker.com/_/mysql
+    environment:
+      MYSQL_DATABASE: weekly-cloud
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-phpmyadmin-volume:/var/lib/mysql
+    networks:
+      - phpmyadmin-mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - mysql-db
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql-db
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - phpmyadmin-mysql
