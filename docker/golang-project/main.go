@@ -34,7 +34,7 @@ func main() {
 	}))
 
 	s := http.Server{
-		Addr:         ":8001",
+		Addr:         ":8000",
 		Handler:      mux,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
