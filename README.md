@@ -2,6 +2,8 @@
 
 ## Weekly Recap
 - [PPT Week 1](https://docs.google.com/presentation/d/1LoZOtOT5JK_stMgX2LLzOmzZTzAZl1Dg/edit?usp=sharing&ouid=111225230215519532168)
+- [PPT Week 2](https://docs.google.com/presentation/d/1btaZd2D23wwTtivxJ2HWdan0EGRc53M5)
+
 
 
 ---
